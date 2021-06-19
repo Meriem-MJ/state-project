@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Profile from './components/Profile';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react'
+
+export class App extends Component {
+  state = {
+    visibility: false
+  };
+  handleToggleVisibility = () => {
+    this.setState(prevState => ({visibility: !prevState.visibility}));
+  }
+  render() {
+    return (
+      <div>
+        <Profile fullName ="Meriem Jebara" bio ="Student in GoMyCode" profession ="Profession: Logistic Assistant" visibility={this.state.visibility} handleToggleVisibility={this.handleToggleVisibility}/>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
